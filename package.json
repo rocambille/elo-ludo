@@ -1,8 +1,8 @@
 {
-  "name": "elo-world",
-  "homepage": "https://rocambille.github.io/elo-world",
+  "name": "elo-ludo",
+  "homepage": "https://rocambille.github.io/elo-ludo",
   "version": "2.1.1",
-  "description": "Elo World, based on react-starter-wcs by Basile V. <basile64.v@gmail.com>",
+  "description": "Elo Ludo, based on react-starter-wcs by Basile V. <basile64.v@gmail.com>",
   "author": "Romain G. <rocambille@gmail.com>",
   "license": "MIT",
   "main": "index.js",

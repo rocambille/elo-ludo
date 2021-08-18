@@ -45,7 +45,14 @@ function GameListProvider({ children }) {
   return (
     <GameListContext.Provider
       value={{
-        games,
+        games: games
+          .filter(({ type }) => type !== 'goodie' && type !== 'accessoire')
+          .map((game) => {
+            if (game.elo == null) {
+              game.elo = 1500;
+            }
+            return game;
+          }),
         addGame,
         hasSomethingToSave,
         removeGame,

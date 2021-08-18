@@ -17,10 +17,11 @@ function Play() {
   }
 
   const sortFunctions = [
-    (a, b) => a.matchCount - b.matchCount,
-    (a, b) =>
-      new Date(a.lastPlayedAt).getTime() - new Date(b.lastPlayedAt).getTime(),
     randomizer,
+    (a, b) => (a.matchCount ?? 0) - (b.matchCount ?? 0),
+    (a, b) =>
+      new Date(a.lastPlayedAt ?? 0).getTime() -
+      new Date(b.lastPlayedAt ?? 0).getTime(),
   ].sort(randomizer);
 
   /* get the 1st and 3rd games from the sorted list */

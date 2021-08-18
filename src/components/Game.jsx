@@ -17,11 +17,29 @@ const formatLastDelta = (lastDelta) => {
   return ` (${lastDelta})`;
 };
 
+const formatMatchCount = (matchCount) => {
+  if (matchCount == null) {
+    return null;
+  }
+
+  return ` / ${matchCount}`;
+};
+
+const formatLastPlayedAt = (lastPlayedAt) => {
+  if (lastPlayedAt == null) {
+    return null;
+  }
+
+  return ` : ${new Date(lastPlayedAt)}`;
+};
+
 function Game({ children, data }) {
   const {
     elo,
     image: { S300: imgSrc },
     lastDelta,
+    lastPlayedAt,
+    matchCount,
     title,
   } = data;
 
@@ -41,6 +59,8 @@ function Game({ children, data }) {
           <p>
             {formatElo(elo)}
             {formatLastDelta(lastDelta)}
+            {formatMatchCount(matchCount)}
+            {formatLastPlayedAt(lastPlayedAt)}
           </p>
         )}
         {children}
@@ -58,6 +78,8 @@ Game.propTypes = {
       S300: string.isRequired,
     }).isRequired,
     lastDelta: number,
+    lastPlayedAt: number,
+    matchCount: number,
     title: string.isRequired,
   }).isRequired,
 };
