@@ -1,14 +1,14 @@
 import React from 'react';
-import { useMovieList } from '../contexts';
+import { useGameList } from '../contexts';
 
 function SaveButton() {
-  const { hasSomethingToSave, saveMovies } = useMovieList();
+  const { hasSomethingToSave, saveGames } = useGameList();
 
   return (
     <button
       className="link"
       type="button"
-      onClick={saveMovies}
+      onClick={saveGames}
       disabled={!hasSomethingToSave}>
       Save
     </button>

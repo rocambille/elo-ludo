@@ -1,44 +1,44 @@
 import React from 'react';
 
-import Movie from './Movie';
-import { useMovieList, useSearch } from '../contexts';
-import MovieGrid from './MovieGrid';
+import Game from './Game';
+import { useGameList, useSearch } from '../contexts';
+import GameGrid from './GameGrid';
 
 function SearchResult({ data }) {
   const { id } = data;
 
-  const { movies, addMovie, removeMovie } = useMovieList();
+  const { games, addGame, removeGame } = useGameList();
 
   const when = {
     [true]: {
-      onClick: () => removeMovie(data),
+      onClick: () => removeGame(data),
       text: '-',
     },
     [false]: {
-      onClick: () => addMovie(data),
+      onClick: () => addGame(data),
       text: '+',
     },
   };
 
-  const hasSeen = movies.find((movie) => movie.id === id) != null;
+  const hasPlayed = games.find((game) => game.id === id) != null;
 
   return (
-    <Movie data={data}>
-      <button type="button" onClick={when[hasSeen].onClick}>
-        {when[hasSeen].text}
+    <Game data={data}>
+      <button type="button" onClick={when[hasPlayed].onClick}>
+        {when[hasPlayed].text}
       </button>
-    </Movie>
+    </Game>
   );
 }
 
 SearchResult.propTypes = {
-  ...Movie.propTypes,
+  ...Game.propTypes,
 };
 
 function SearchResults() {
   const { results } = useSearch();
 
-  return <MovieGrid movies={results} movieComponentType={SearchResult} />;
+  return <GameGrid games={results} gameComponentType={SearchResult} />;
 }
 
 export default SearchResults;

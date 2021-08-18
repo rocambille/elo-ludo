@@ -1,20 +1,20 @@
 import React from 'react';
 import { func } from 'prop-types';
 
-import Movie from './Movie';
+import Game from './Game';
 
 function Player({ data, onWin }) {
   return (
-    <Movie data={data}>
+    <Game data={data}>
       <button type="button" onClick={onWin}>
         WIN
       </button>
-    </Movie>
+    </Game>
   );
 }
 
 Player.propTypes = {
-  ...Movie.propTypes,
+  ...Game.propTypes,
   onWin: func.isRequired,
 };
 

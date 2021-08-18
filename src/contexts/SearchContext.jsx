@@ -5,7 +5,7 @@ import useFetch from '../hooks/useFetch';
 
 const fetchOptions = {
   initialState: [],
-  extractData: (body) => body.results,
+  extractData: (body) => body.list,
 };
 
 const SearchContext = createContext();
@@ -17,7 +17,7 @@ function SearchProvider({ children }) {
 
   const setQuery = (query) => {
     setUrl(
-      `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=b581f37ace71546447fa00eb1e80ab57`,
+      `https://www.myludo.fr/views/profil/datas.php?type=collection&id=${query}`,
     );
   };
 

@@ -1,14 +1,14 @@
 import React from 'react';
 
-import MovieGrid from '../components/MovieGrid';
-import { useMovieList } from '../contexts';
+import GameGrid from '../components/GameGrid';
+import { useGameList } from '../contexts';
 
 function Home() {
-  const { movies } = useMovieList();
+  const { games } = useGameList();
 
   return (
-    <MovieGrid
-      movies={movies.sort(
+    <GameGrid
+      games={games.sort(
         (a, b) =>
           b.elo - a.elo ||
           b.matchCount - a.matchCount ||

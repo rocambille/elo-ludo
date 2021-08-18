@@ -17,18 +17,13 @@ const formatLastDelta = (lastDelta) => {
   return ` (${lastDelta})`;
 };
 
-function Movie({ children, data }) {
+function Game({ children, data }) {
   const {
-    backdrop_path,
     elo,
+    image: { s300: imgPath },
     lastDelta,
-    overview,
-    poster_path,
-    release_date,
     title,
   } = data;
-
-  const imgPath = poster_path ?? backdrop_path;
 
   return (
     <figure className="sm:inline-flex shadow overflow-hidden rounded-xl sm:p-0 sm:h-72">
@@ -42,38 +37,29 @@ function Movie({ children, data }) {
       )}
       <figcaption className="flex flex-col sm:w-96 p-4 sm:p-8 text-center sm:text-left space-y-2">
         <p className="font-semibold">{title}</p>
-        {release_date && (
-          <time className="mb-2 text-gray-500">
-            {new Date(release_date).getFullYear()}
-          </time>
-        )}
         {elo && lastDelta && (
           <p>
             {formatElo(elo)}
             {formatLastDelta(lastDelta)}
           </p>
         )}
-        <p className="hidden sm:line-clamp-6 sm:overflow-ellipsis">
-          {overview}
-        </p>
         {children}
       </figcaption>
     </figure>
   );
 }
 
-Movie.propTypes = {
+Game.propTypes = {
   children: node,
   data: shape({
-    backdrop_path: string,
     elo: number,
-    id: number.isRequired,
+    id: string.isRequired,
+    image: shape({
+      s300: string.isRequired,
+    }).isRequired,
     lastDelta: number,
-    overview: string,
-    poster_path: string,
-    release_date: string.isRequired,
     title: string.isRequired,
   }).isRequired,
 };
 
-export default Movie;
+export default Game;

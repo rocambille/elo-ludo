@@ -13,8 +13,8 @@ function SearchBar() {
         event.preventDefault();
         setQuery(inputRef.current.value);
       }}>
-      <label htmlFor="title">Title</label>
-      <input ref={inputRef} id="title" />
+      <label htmlFor="myludo">Myludo id</label>
+      <input ref={inputRef} id="myludo" />
       <button type="submit">Search</button>
     </form>
   );

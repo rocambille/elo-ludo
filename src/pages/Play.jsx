@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Player from '../components/Player';
-import { useMovieList } from '../contexts';
+import { useGameList } from '../contexts';
 
 import elo from '../helpers/elo';
 
@@ -10,10 +10,10 @@ const player = elo();
 const randomizer = () => Math.random() - 0.5;
 
 function Play() {
-  const { movies, updateMovies } = useMovieList();
+  const { games, updateGames } = useGameList();
 
-  if (movies.length < 10) {
-    return <p>you should start with searching movies ;)</p>;
+  if (games.length < 10) {
+    return <p>you should start with searching games ;)</p>;
   }
 
   const sortFunctions = [
@@ -23,33 +23,33 @@ function Play() {
     randomizer,
   ].sort(randomizer);
 
-  /* get the 1st and 3rd movies from the sorted list */
+  /* get the 1st and 3rd games from the sorted list */
   /* 1st and 2nd may have been together in their last match */
   /* (same matchCount or lastPlayedAt) */
-  let [movie1, , movie2] = movies.sort(sortFunctions[0]);
+  let [game1, , game2] = games.sort(sortFunctions[0]);
 
   return (
     <>
       <Player
-        data={movie1}
+        data={game1}
         onWin={() => {
-          [movie1, movie2] = player(movie1).wins(movie2);
-          updateMovies(movie1, movie2);
+          [game1, game2] = player(game1).wins(game2);
+          updateGames(game1, game2);
         }}
       />
       vs
       <Player
-        data={movie2}
+        data={game2}
         onWin={() => {
-          [movie2, movie1] = player(movie2).wins(movie1);
-          updateMovies(movie1, movie2);
+          [game2, game1] = player(game2).wins(game1);
+          updateGames(game1, game2);
         }}
       />
       <button
         type="button"
         onClick={() => {
-          [movie1, movie2] = player(movie1).ties(movie2);
-          updateMovies(movie1, movie2);
+          [game1, game2] = player(game1).ties(game2);
+          updateGames(game1, game2);
         }}>
         ==
       </button>

@@ -1,12 +1,12 @@
 import { LoginDataProvider, useLoginData } from './LoginDataContext';
-import { MovieListProvider, useMovieList } from './MovieListContext';
+import { GameListProvider, useGameList } from './GameListContext';
 import { SearchProvider, useSearch } from './SearchContext';
 
 export {
   LoginDataProvider,
-  MovieListProvider,
+  GameListProvider,
   SearchProvider,
   useLoginData,
-  useMovieList,
+  useGameList,
   useSearch,
 };
