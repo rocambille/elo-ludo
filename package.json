@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
-    "build": "vite build --base=/elo-world/",
+    "build": "vite build --base=/elo-ludo/",
     "serve": "vite preview",
     "lint": "lint-staged",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=5",
