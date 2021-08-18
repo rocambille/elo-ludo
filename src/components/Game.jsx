@@ -20,17 +20,17 @@ const formatLastDelta = (lastDelta) => {
 function Game({ children, data }) {
   const {
     elo,
-    image: { s300: imgPath },
+    image: { S300: imgSrc },
     lastDelta,
     title,
   } = data;
 
   return (
     <figure className="sm:inline-flex shadow overflow-hidden rounded-xl sm:p-0 sm:h-72">
-      {imgPath && (
+      {imgSrc && (
         <img
           loading="lazy"
-          src={`https://image.tmdb.org/t/p/w500${imgPath}`}
+          src={imgSrc}
           alt={title}
           className="block sm:w-48 h-auto"
         />
@@ -55,7 +55,7 @@ Game.propTypes = {
     elo: number,
     id: string.isRequired,
     image: shape({
-      s300: string.isRequired,
+      S300: string.isRequired,
     }).isRequired,
     lastDelta: number,
     title: string.isRequired,
