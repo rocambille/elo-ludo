@@ -1,0 +1,490 @@
+[
+  {
+    "id": "51184",
+    "code": "par-odin-les-pierres-de-coba-defis-bonus",
+    "title": "Par Odin / Les Pierres de Coba - Défis Bonus",
+    "edition": 2020,
+    "collection": "Par Odin, Les Pierres de Coba",
+    "univers": "",
+    "type": "extension",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1628879483/160/bz/51184.png",
+      "S160": "https://www.myludo.fr/img/jeux/1628879483/160/bz/51184.png",
+      "S300": "https://www.myludo.fr/img/jeux/1628879483/300/bz/51184.png"
+    },
+    "crowdfunding": "download",
+    "release": false,
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "5",
+    "time_max": "30",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "50947",
+    "code": "nidavellir-art-box",
+    "title": "Nidavellir - Art Box",
+    "edition": 2022,
+    "collection": "Nidavellir",
+    "univers": "",
+    "type": "accessoire",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1627394231/160/by/50947.png",
+      "S160": "https://www.myludo.fr/img/jeux/1627394231/160/by/50947.png",
+      "S300": "https://www.myludo.fr/img/jeux/1627394231/300/by/50947.png"
+    },
+    "crowdfunding": "preorder",
+    "release": {
+      "date": "15 janvier 2022",
+      "dateshort": "15 jan 2022",
+      "futur": true
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "30",
+    "time_max": "60",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "50948",
+    "code": "nidavellir-tresor-royal-de-luxe",
+    "title": "Nidavellir - Trésor Royal de Luxe",
+    "edition": 2022,
+    "collection": "Nidavellir",
+    "univers": "",
+    "type": "accessoire",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1627358719/160/by/50948.png",
+      "S160": "https://www.myludo.fr/img/jeux/1627358719/160/by/50948.png",
+      "S300": "https://www.myludo.fr/img/jeux/1627358719/300/by/50948.png"
+    },
+    "crowdfunding": "preorder",
+    "release": {
+      "date": "15 janvier 2022",
+      "dateshort": "15 jan 2022",
+      "futur": true
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "30",
+    "time_max": "60",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "48749",
+    "code": "unlock-legendary-adventures",
+    "title": "Unlock! Legendary Adventures",
+    "edition": 2021,
+    "collection": "Unlock!",
+    "univers": "",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1623878307/160/bw/48749.png",
+      "S160": "https://www.myludo.fr/img/jeux/1623878307/160/bw/48749.png",
+      "S300": "https://www.myludo.fr/img/jeux/1623878307/300/bw/48749.png"
+    },
+    "crowdfunding": false,
+    "release": {
+      "date": "2 juillet 2021",
+      "dateshort": "2 juil 2021",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "60",
+    "time_max": "60",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "33065",
+    "code": "palm-island",
+    "title": "Palm Island",
+    "edition": 2019,
+    "collection": "Palm Island",
+    "univers": "",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1629018737/160/bh/33065.png",
+      "S160": "https://www.myludo.fr/img/jeux/1629018737/160/bh/33065.png",
+      "S300": "https://www.myludo.fr/img/jeux/1629018737/300/bh/33065.png"
+    },
+    "crowdfunding": false,
+    "release": false,
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "15",
+    "time_max": "15",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "37723",
+    "code": "les-pierres-de-coba",
+    "title": "Les Pierres de Coba",
+    "edition": 2020,
+    "collection": "Les Pierres de Coba",
+    "univers": "",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1628879037/160/bl/37723.png",
+      "S160": "https://www.myludo.fr/img/jeux/1628879037/160/bl/37723.png",
+      "S300": "https://www.myludo.fr/img/jeux/1628879037/300/bl/37723.png"
+    },
+    "crowdfunding": false,
+    "release": {
+      "date": "20 juillet 2020",
+      "dateshort": "20 juil 2020",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "5",
+    "time_max": "30",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "41868",
+    "code": "mystery-house-retour-a-tombstone",
+    "title": "Mystery House - Retour à Tombstone",
+    "edition": 2020,
+    "collection": "Mystery House",
+    "univers": "",
+    "type": "extension",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1603847575/160/bp/41868.png",
+      "S160": "https://www.myludo.fr/img/jeux/1603847575/160/bp/41868.png",
+      "S300": "https://www.myludo.fr/img/jeux/1603847575/300/bp/41868.png"
+    },
+    "crowdfunding": false,
+    "release": {
+      "date": "27 octobre 2020",
+      "dateshort": "27 oct 2020",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "30",
+    "time_max": "60",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "47693",
+    "code": "jekyll-vs-hyde",
+    "title": "Jekyll vs Hyde",
+    "edition": 2021,
+    "collection": "Jekyll vs Hyde",
+    "univers": "",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1623063245/160/bv/47693.png",
+      "S160": "https://www.myludo.fr/img/jeux/1623063245/160/bv/47693.png",
+      "S300": "https://www.myludo.fr/img/jeux/1623063245/300/bv/47693.png"
+    },
+    "crowdfunding": false,
+    "release": {
+      "date": "16 avril 2021",
+      "dateshort": "16 avr 2021",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "25",
+    "time_max": "40",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "6357",
+    "code": "l-ile-interdite",
+    "title": "L\u0027Île interdite",
+    "edition": 2010,
+    "collection": "Forbidden Island",
+    "univers": "Interdit",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1609610579/160/ag/6357.png",
+      "S160": "https://www.myludo.fr/img/jeux/1609610579/160/ag/6357.png",
+      "S300": "https://www.myludo.fr/img/jeux/1609610579/300/ag/6357.png"
+    },
+    "crowdfunding": false,
+    "release": {
+      "date": "3 septembre 2010",
+      "dateshort": "3 sep 2010",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "30",
+    "time_max": "30",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "37371",
+    "code": "romeo-juliette",
+    "title": "Roméo \u0026 Juliette",
+    "edition": 2020,
+    "collection": "Roméo \u0026 Juliette",
+    "univers": "Roméo et Juliette",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1618131164/160/bl/37371.png",
+      "S160": "https://www.myludo.fr/img/jeux/1618131164/160/bl/37371.png",
+      "S300": "https://www.myludo.fr/img/jeux/1618131164/300/bl/37371.png"
+    },
+    "crowdfunding": false,
+    "release": {
+      "date": "2 octobre 2020",
+      "dateshort": "2 oct 2020",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "30",
+    "time_max": "30",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "35799",
+    "code": "escape-room-2",
+    "title": "Escape Room 2",
+    "edition": 2019,
+    "collection": "Escape Room",
+    "univers": "",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1611565282/160/bj/35799.png",
+      "S160": "https://www.myludo.fr/img/jeux/1611565282/160/bj/35799.png",
+      "S300": "https://www.myludo.fr/img/jeux/1611565282/300/bj/35799.png"
+    },
+    "crowdfunding": false,
+    "release": false,
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "60",
+    "time_max": "60",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "46964",
+    "code": "clash-of-decks-starter-kit",
+    "title": "Clash Of Decks : Starter Kit",
+    "edition": 2021,
+    "collection": "Clash Of Deck",
+    "univers": "",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1621457773/160/bu/46964.png",
+      "S160": "https://www.myludo.fr/img/jeux/1621457773/160/bu/46964.png",
+      "S300": "https://www.myludo.fr/img/jeux/1621457773/300/bu/46964.png"
+    },
+    "crowdfunding": "kickstarter",
+    "release": {
+      "date": "24 septembre 2021",
+      "dateshort": "24 sep 2021",
+      "futur": true
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "15",
+    "time_max": "15",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "44739",
+    "code": "vertellis-special-couples",
+    "title": "Vertellis - Special Couples",
+    "edition": 2017,
+    "collection": "Vertellis",
+    "univers": "",
+    "type": "standalone",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1610373635/160/bs/44739.png",
+      "S160": "https://www.myludo.fr/img/jeux/1610373635/160/bs/44739.png",
+      "S300": "https://www.myludo.fr/img/jeux/1610373635/300/bs/44739.png"
+    },
+    "crowdfunding": false,
+    "release": false,
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "30",
+    "time_max": "120",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "44504",
+    "code": "roll-cube-apero",
+    "title": "Roll\u0027cube - Apéro",
+    "edition": 2011,
+    "collection": "Roll\u0027cube",
+    "univers": "",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1606491782/160/bs/44504.png",
+      "S160": "https://www.myludo.fr/img/jeux/1606491782/160/bs/44504.png",
+      "S300": "https://www.myludo.fr/img/jeux/1606491782/300/bs/44504.png"
+    },
+    "crowdfunding": false,
+    "release": {
+      "date": "30 juin 2011",
+      "dateshort": "30 juin 2011",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "30",
+    "time_max": "30",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "18233",
+    "code": "contrario",
+    "title": "Contrario",
+    "edition": 2001,
+    "collection": "Contrario",
+    "univers": "",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1619517862/160/as/18233.png",
+      "S160": "https://www.myludo.fr/img/jeux/1619517862/160/as/18233.png",
+      "S300": "https://www.myludo.fr/img/jeux/1619517862/300/as/18233.png"
+    },
+    "crowdfunding": false,
+    "release": {
+      "date": "30 octobre 2001",
+      "dateshort": "30 oct 2001",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "30",
+    "time_max": "30",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "47457",
+    "code": "kingdom-rush-elemental-uprising-elemenace-chest",
+    "title": "Kingdom Rush : Elemental Uprising - Elemenace Chest",
+    "edition": 2022,
+    "collection": "Kingdom Rush",
+    "univers": "",
+    "type": "standalone",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1624521361/160/bv/47457.png",
+      "S160": "https://www.myludo.fr/img/jeux/1624521361/160/bv/47457.png",
+      "S300": "https://www.myludo.fr/img/jeux/1624521361/300/bv/47457.png"
+    },
+    "crowdfunding": "gamefound",
+    "release": {
+      "date": "9 février 2021",
+      "dateshort": "9 fév 2021",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "45",
+    "time_max": "90",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "46269",
+    "code": "visite-royale",
+    "title": "Visite Royale",
+    "edition": 2021,
+    "collection": "Auf der Reeperbahn nachts um halb zwei",
+    "univers": "",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1615380943/160/bu/46269.png",
+      "S160": "https://www.myludo.fr/img/jeux/1615380943/160/bu/46269.png",
+      "S300": "https://www.myludo.fr/img/jeux/1615380943/300/bu/46269.png"
+    },
+    "crowdfunding": false,
+    "release": {
+      "date": "5 février 2021",
+      "dateshort": "5 fév 2021",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "20",
+    "time_max": "20",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  },
+  {
+    "id": "1005",
+    "code": "7-wonders-duel",
+    "title": "7 Wonders Duel",
+    "edition": 2015,
+    "collection": "7 Wonders Duel",
+    "univers": "7 Wonders",
+    "type": "basegame",
+    "image": {
+      "S80": "https://www.myludo.fr/img/jeux/1622814635/160/ab/1005.png",
+      "S160": "https://www.myludo.fr/img/jeux/1622814635/160/ab/1005.png",
+      "S300": "https://www.myludo.fr/img/jeux/1622814635/300/ab/1005.png"
+    },
+    "crowdfunding": false,
+    "release": {
+      "date": "6 novembre 2015",
+      "dateshort": "6 nov 2015",
+      "futur": false
+    },
+    "languages": false,
+    "available": true,
+    "listed": false,
+    "time_min": "30",
+    "time_max": "30",
+    "wished": false,
+    "selected": false,
+    "unavailable": false
+  }
+]
