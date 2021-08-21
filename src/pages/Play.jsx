@@ -3,7 +3,7 @@ import React from 'react';
 import Player from '../components/Player';
 import { useGameList } from '../contexts';
 
-import elo from '../helpers/elo';
+import elo from '@rocambille/elo';
 
 const player = elo();
 

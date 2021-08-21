@@ -25,7 +25,7 @@ function GameListProvider({ children }) {
   const hasSomethingToSave = !git.isUpToDate;
 
   const addGame = (data) => {
-    setGames([...games, { ...data, elo: 1500, matchCount: 0 }]);
+    setGames([...games, { ...data }]);
   };
 
   const removeGame = ({ id }) => {
@@ -45,14 +45,9 @@ function GameListProvider({ children }) {
   return (
     <GameListContext.Provider
       value={{
-        games: games
-          .filter(({ type }) => type !== 'goodie' && type !== 'accessoire')
-          .map((game) => {
-            if (game.elo == null) {
-              game.elo = 1500;
-            }
-            return game;
-          }),
+        games: games.filter(
+          ({ type }) => type !== 'goodie' && type !== 'accessoire',
+        ),
         addGame,
         hasSomethingToSave,
         removeGame,
