@@ -1,20 +1,20 @@
 import React from 'react';
 import { func } from 'prop-types';
 
-import Game from './Game';
+import Resource from './Resource';
 
 function Player({ data, onWin }) {
   return (
-    <Game data={data}>
+    <Resource data={data}>
       <button type="button" onClick={onWin}>
         WIN
       </button>
-    </Game>
+    </Resource>
   );
 }
 
 Player.propTypes = {
-  ...Game.propTypes,
+  ...Resource.propTypes,
   onWin: func.isRequired,
 };
 

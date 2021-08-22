@@ -2,15 +2,21 @@ import React from 'react';
 import { useResources } from '../contexts';
 
 function SaveButton() {
-  const { hasSomethingToSave, save } = useResources();
+  const { type, setType } = useResources();
+
+  const when = {
+    ['Collection']: 'Wishlist',
+    ['Wishlist']: 'Collection',
+  };
 
   return (
     <button
       className="link"
       type="button"
-      onClick={save}
-      disabled={!hasSomethingToSave}>
-      Save
+      onClick={() => {
+        setType(when[type]);
+      }}>
+      {when[type]}
     </button>
   );
 }

@@ -1,12 +1,8 @@
 import React from 'react';
 import { node, number, shape, string } from 'prop-types';
 
-const formatElo = (elo) => elo?.toFixed(1);
-
-const formatLastDelta = (lastDelta) => {
-  if (lastDelta == null) {
-    return null;
-  }
+const format = (elo, matchCount, lastDelta, lastPlayedAt) => {
+  elo = elo.toFixed(1);
 
   lastDelta = lastDelta.toFixed(1);
 
@@ -14,26 +10,23 @@ const formatLastDelta = (lastDelta) => {
     lastDelta = `+${lastDelta}`;
   }
 
-  return ` (${lastDelta})`;
+  const dateOptions = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  };
+  lastPlayedAt = new Date(lastPlayedAt).toLocaleDateString(
+    undefined,
+    dateOptions,
+  );
+
+  return `${elo} / ${matchCount} (${lastDelta} on ${lastPlayedAt})`;
 };
 
-const formatMatchCount = (matchCount) => {
-  if (matchCount == null) {
-    return null;
-  }
-
-  return ` / ${matchCount}`;
-};
-
-const formatLastPlayedAt = (lastPlayedAt) => {
-  if (lastPlayedAt == null) {
-    return null;
-  }
-
-  return ` : ${new Date(lastPlayedAt)}`;
-};
-
-function Game({ children, data }) {
+function Resource({ children, data }) {
   const {
     elo,
     image: { S300: imgSrc },
@@ -55,21 +48,18 @@ function Game({ children, data }) {
       )}
       <figcaption className="flex flex-col sm:w-96 p-4 sm:p-8 text-center sm:text-left space-y-2">
         <p className="font-semibold">{title}</p>
-        {elo && lastDelta && (
-          <p>
-            {formatElo(elo)}
-            {formatLastDelta(lastDelta)}
-            {formatMatchCount(matchCount)}
-            {formatLastPlayedAt(lastPlayedAt)}
-          </p>
-        )}
+        <p>
+          {elo != null
+            ? format(elo, matchCount, lastDelta, lastPlayedAt)
+            : 'newbie'}
+        </p>
         {children}
       </figcaption>
     </figure>
   );
 }
 
-Game.propTypes = {
+Resource.propTypes = {
   children: node,
   data: shape({
     elo: number,
@@ -84,4 +74,4 @@ Game.propTypes = {
   }).isRequired,
 };
 
-export default Game;
+export default Resource;

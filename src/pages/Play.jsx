@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Player from '../components/Player';
-import { useGameList } from '../contexts';
+import { useResources } from '../contexts';
 
 import elo from '@rocambille/elo';
 
@@ -10,10 +10,10 @@ const player = elo();
 const randomizer = () => Math.random() - 0.5;
 
 function Play() {
-  const { games, updateGames } = useGameList();
+  const { resources, update } = useResources();
 
-  if (games.length < 10) {
-    return <p>you should start with searching games ;)</p>;
+  if (resources.length < 10) {
+    return <p>you should start with searching things ;)</p>;
   }
 
   const sortFunctions = [
@@ -24,33 +24,33 @@ function Play() {
       new Date(b.lastPlayedAt ?? 0).getTime(),
   ].sort(randomizer);
 
-  /* get the 1st and 3rd games from the sorted list */
+  /* get the 1st and 3rd elements from the sorted list */
   /* 1st and 2nd may have been together in their last match */
   /* (same matchCount or lastPlayedAt) */
-  let [game1, , game2] = games.sort(sortFunctions[0]);
+  let [resource1, , resource2] = resources.sort(sortFunctions[0]);
 
   return (
     <>
       <Player
-        data={game1}
+        data={resource1}
         onWin={() => {
-          [game1, game2] = player(game1).wins(game2);
-          updateGames(game1, game2);
+          [resource1, resource2] = player(resource1).wins(resource2);
+          update(resource1, resource2);
         }}
       />
       vs
       <Player
-        data={game2}
+        data={resource2}
         onWin={() => {
-          [game2, game1] = player(game2).wins(game1);
-          updateGames(game1, game2);
+          [resource2, resource1] = player(resource2).wins(resource1);
+          update(resource1, resource2);
         }}
       />
       <button
         type="button"
         onClick={() => {
-          [game1, game2] = player(game1).ties(game2);
-          updateGames(game1, game2);
+          [resource1, resource2] = player(resource1).ties(resource2);
+          update(resource1, resource2);
         }}>
         ==
       </button>

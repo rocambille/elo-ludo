@@ -1,44 +1,46 @@
 import React from 'react';
 
-import Game from './Game';
-import { useGameList, useSearch } from '../contexts';
-import GameGrid from './GameGrid';
+import Resource from './Resource';
+import { useResources, useSearch } from '../contexts';
+import ResourceGrid from './ResourceGrid';
 
 function SearchResult({ data }) {
   const { id } = data;
 
-  const { games, addGame, removeGame } = useGameList();
+  const { resources, add, remove } = useResources();
 
   const when = {
     [true]: {
-      onClick: () => removeGame(data),
+      onClick: () => remove(data),
       text: '-',
     },
     [false]: {
-      onClick: () => addGame(data),
+      onClick: () => add(data),
       text: '+',
     },
   };
 
-  const hasPlayed = games.find((game) => game.id === id) != null;
+  const hasSeen = resources.find((resource) => resource.id === id) != null;
 
   return (
-    <Game data={data}>
-      <button type="button" onClick={when[hasPlayed].onClick}>
-        {when[hasPlayed].text}
+    <Resource data={data}>
+      <button type="button" onClick={when[hasSeen].onClick}>
+        {when[hasSeen].text}
       </button>
-    </Game>
+    </Resource>
   );
 }
 
 SearchResult.propTypes = {
-  ...Game.propTypes,
+  ...Resource.propTypes,
 };
 
 function SearchResults() {
   const { results } = useSearch();
 
-  return <GameGrid games={results} gameComponentType={SearchResult} />;
+  return (
+    <ResourceGrid resources={results} resourceComponentType={SearchResult} />
+  );
 }
 
 export default SearchResults;

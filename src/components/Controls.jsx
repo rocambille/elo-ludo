@@ -4,6 +4,7 @@ import { string } from 'prop-types';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import SaveButton from './SaveButton';
+import TypeButton from './TypeButton';
 import { useLoginData } from '../contexts';
 
 function Controls({ className }) {
@@ -16,6 +17,7 @@ function Controls({ className }) {
         <LoginButton />
       ) : (
         <>
+          <TypeButton />
           <SaveButton />
           <LogoutButton />
         </>
