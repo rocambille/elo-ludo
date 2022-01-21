@@ -4,7 +4,9 @@ import { string } from 'prop-types';
 
 const link = (path, text) => (
   <li>
-    <NavLink to={path} exact activeClassName="active" className="link">
+    <NavLink
+      to={path}
+      className={({ isActive }) => (isActive ? 'active link' : 'link')}>
       {text}
     </NavLink>
   </li>
@@ -16,7 +18,7 @@ function Navbar({ className }) {
       <ul className="flex flex-row justify-evenly sm:justify-start shadow-t sm:shadow-b">
         {link('/', 'Home')}
         {link('/play', 'Play')}
-        {link('/search', 'Search')}
+        {link('/merge', 'Merge')}
       </ul>
     </nav>
   );

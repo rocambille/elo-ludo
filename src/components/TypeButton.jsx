@@ -4,7 +4,7 @@ import { useResources } from '../contexts';
 function SaveButton() {
   const { type, setType } = useResources();
 
-  const when = {
+  const match = {
     ['Collection']: 'Wishlist',
     ['Wishlist']: 'Collection',
   };
@@ -14,9 +14,9 @@ function SaveButton() {
       className="link"
       type="button"
       onClick={() => {
-        setType(when[type]);
+        setType(match[type]);
       }}>
-      {when[type]}
+      {match[type]}
     </button>
   );
 }

@@ -4,6 +4,8 @@ import { node } from 'prop-types';
 import { useLoginData } from './LoginDataContext';
 import useGitHubContent from '../hooks/useGitHubContent';
 
+import elo from '@rocambille/elo';
+
 const initialContent = [];
 
 const ResourceContext = createContext();
@@ -34,6 +36,20 @@ function ResourceProvider({ children }) {
     setResources(resources.filter((resource) => resource.id !== id));
   };
 
+  const reset = (...oldResources) => {
+    const player = elo();
+
+    setResources(
+      resources.map((resource) => {
+        if (oldResources.find(({ id }) => id === resource.id)) {
+          resource = player(resource).reset();
+        }
+
+        return resource;
+      }),
+    );
+  };
+
   const save = () => {
     git.push();
   };
@@ -56,7 +72,9 @@ function ResourceProvider({ children }) {
         add,
         hasSomethingToSave,
         remove,
+        reset,
         save,
+        setResources,
         setType,
         type,
         update,

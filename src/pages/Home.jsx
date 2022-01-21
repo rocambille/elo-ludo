@@ -5,7 +5,7 @@ import ResourceGrid from '../components/ResourceGrid';
 import { useResources } from '../contexts';
 
 function Home() {
-  const { resources } = useResources();
+  const { resources, reset } = useResources();
 
   const max = resources.reduce((max, { elo = 0 }) => Math.max(max, elo), 0);
 
@@ -22,7 +22,15 @@ function Home() {
 
         return (
           <Resource data={data}>
-            <strong>{Math.round(score * 2) / 2}</strong>
+            <p>
+              <strong>{Math.round(score * 2) / 2}</strong>
+              <button
+                className="link"
+                type="button"
+                onClick={() => reset(data)}>
+                Reset
+              </button>
+            </p>
           </Resource>
         );
       }}
