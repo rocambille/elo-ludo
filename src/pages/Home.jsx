@@ -28,7 +28,7 @@ function Home() {
           return (
             <Resource data={data}>
               <p>
-                <strong>{Math.round(score)}</strong>
+                <strong>{Math.round(score).toString()}</strong>
                 <button
                   className="link"
                   type="button"

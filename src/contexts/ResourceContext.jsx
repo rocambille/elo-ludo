@@ -10,7 +10,10 @@ const initialContent = elo.Pool([]);
 
 const ResourceContext = createContext();
 
-const makeEloPool = (data) => elo.Pool(data);
+const makeEloPool = (data) =>
+  elo.Pool(
+    data.filter(({ type }) => type !== 'goodie' && type !== 'accessoire'),
+  );
 
 function ResourceProvider({ children }) {
   const { loginData } = useLoginData();
@@ -38,9 +41,7 @@ function ResourceProvider({ children }) {
   return (
     <ResourceContext.Provider
       value={{
-        resources: resources.filter(
-          ({ type }) => type !== 'goodie' && type !== 'accessoire',
-        ),
+        resources: resources,
         hasSomethingToSave,
         save,
         setResources,
