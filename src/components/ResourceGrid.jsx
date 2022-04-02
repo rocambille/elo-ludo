@@ -9,9 +9,9 @@ function ResourceGrid({
 }) {
   return (
     <ol className="grid grid-cols-1 sm:grid-cols-auto-fit gap-y-4 justify-items-center">
-      {resources.map((resource) => (
+      {resources.map((resource, index) => (
         <li key={resource.id}>
-          <ResourceComponentType data={resource} />
+          <ResourceComponentType data={resource} index={index} />
         </li>
       ))}
     </ol>

@@ -43,7 +43,7 @@ function Resource({ children, data }) {
           loading="lazy"
           src={imgSrc}
           alt={title}
-          className="block sm:w-48 h-auto"
+          className="block sm:w-48 h-auto object-contain"
         />
       )}
       <figcaption className="flex flex-col sm:w-96 p-4 sm:p-8 text-center sm:text-left space-y-2">

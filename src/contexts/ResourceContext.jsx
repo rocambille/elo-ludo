@@ -6,7 +6,7 @@ import useGitHubContent from '../hooks/useGitHubContent';
 
 import elo from '@rocambille/elo';
 
-const initialContent = [];
+const initialContent = elo.Pool([]);
 
 const ResourceContext = createContext();
 
@@ -23,44 +23,14 @@ function ResourceProvider({ children }) {
       token: loginData?.pat,
       initialContent,
       branch: 'data',
+      afterPull: (data) => elo.Pool(data),
     },
   );
 
   const hasSomethingToSave = !git.isUpToDate;
 
-  const add = (data) => {
-    setResources([...resources, data]);
-  };
-
-  const remove = ({ id }) => {
-    setResources(resources.filter((resource) => resource.id !== id));
-  };
-
-  const reset = (...oldResources) => {
-    const player = elo();
-
-    setResources(
-      resources.map((resource) => {
-        if (oldResources.find(({ id }) => id === resource.id)) {
-          resource = player(resource).reset();
-        }
-
-        return resource;
-      }),
-    );
-  };
-
   const save = () => {
     git.push();
-  };
-
-  const update = (...newResources) => {
-    setResources(
-      resources.map(
-        (resource) =>
-          newResources.find(({ id }) => id === resource.id) ?? resource,
-      ),
-    );
   };
 
   return (
@@ -69,15 +39,11 @@ function ResourceProvider({ children }) {
         resources: resources.filter(
           ({ type }) => type !== 'goodie' && type !== 'accessoire',
         ),
-        add,
         hasSomethingToSave,
-        remove,
-        reset,
         save,
         setResources,
         setType,
         type,
-        update,
       }}>
       {children}
     </ResourceContext.Provider>
