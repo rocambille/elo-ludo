@@ -24,7 +24,11 @@ function Play() {
         const player2Index =
           (player1Index + rollDice(1, resources.length - 1)) % resources.length;
 
-        return [resources[player1Index], null, resources[player2Index]];
+        return [
+          { index: player1Index, data: resources[player1Index] },
+          null,
+          { index: player2Index, data: resources[player2Index] },
+        ];
       }
       case 'MATCH_COUNT':
         pickField = 'matchCount';
@@ -35,25 +39,37 @@ function Play() {
     }
 
     return resources.reduce(
-      (pickedPlayers, candidate) => {
+      (pickedPlayers, candidate, index) => {
         const candidateStat = candidate[pickField] ?? 0;
 
-        if (candidateStat < (pickedPlayers[0][pickField] ?? 0)) {
-          return [candidate, pickedPlayers[0], pickedPlayers[1]];
+        if (candidateStat < (pickedPlayers[0].data[pickField] ?? 0)) {
+          return [
+            { index, data: candidate },
+            pickedPlayers[0],
+            pickedPlayers[1],
+          ];
         }
-        if (candidate[pickField] < (pickedPlayers[1][pickField] ?? 0)) {
-          return [pickedPlayers[0], candidate, pickedPlayers[1]];
+        if (candidate[pickField] < (pickedPlayers[1].data[pickField] ?? 0)) {
+          return [
+            pickedPlayers[0],
+            { index, data: candidate },
+            pickedPlayers[1],
+          ];
         }
-        if (candidate[pickField] < (pickedPlayers[2][pickField] ?? 0)) {
-          return [pickedPlayers[0], pickedPlayers[1], candidate];
+        if (candidate[pickField] < (pickedPlayers[2].data[pickField] ?? 0)) {
+          return [
+            pickedPlayers[0],
+            pickedPlayers[1],
+            { index, data: candidate },
+          ];
         }
 
         return pickedPlayers;
       },
       [
-        { [pickField]: Infinity },
-        { [pickField]: Infinity },
-        { [pickField]: Infinity },
+        { data: { [pickField]: Infinity } },
+        { data: { [pickField]: Infinity } },
+        { data: { [pickField]: Infinity } },
       ],
     );
   };
