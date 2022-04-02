@@ -19,11 +19,11 @@ function Modal({ opener, children }) {
 
     if (isOpen) {
       window.addEventListener('keydown', keyDownListener);
-    }
 
-    return () => {
-      window.removeEventListener('keydown', keyDownListener);
-    };
+      return () => {
+        window.removeEventListener('keydown', keyDownListener);
+      };
+    }
   }, [close, isOpen]);
 
   return (
