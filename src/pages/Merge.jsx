@@ -18,14 +18,23 @@ function Merge() {
 
         const mergedResources = incomingResources.reduce(
           (mergedResources, incomingResource) => {
-            const existingResource = resources.find(
+            const alreadyMerged =
+              mergedResources.find(
+                (resource) => resource.id === incomingResource.id,
+              ) != null;
+
+            if (alreadyMerged) {
+              return mergedResources;
+            }
+
+            const knownResource = resources.find(
               (resource) => resource.id === incomingResource.id,
             );
 
-            if (existingResource == null) {
-              return [...mergedResources, incomingResource];
+            if (knownResource) {
+              return [...mergedResources, knownResource];
             } else {
-              return [...mergedResources, existingResource];
+              return [...mergedResources, incomingResource];
             }
           },
           [],
