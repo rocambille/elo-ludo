@@ -14,7 +14,9 @@ function Merge() {
       onSubmit={(event) => {
         event.preventDefault();
 
-        const incomingResources = JSON.parse(textareaRef.current.value);
+        const incomingResources = JSON.parse(textareaRef.current.value).filter(
+          ({ type }) => type !== 'goodie' && type !== 'accessoire',
+        );
 
         const mergedResources = incomingResources.reduce(
           (mergedResources, incomingResource) => {
