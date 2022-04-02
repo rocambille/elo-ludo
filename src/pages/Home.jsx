@@ -9,7 +9,7 @@ function Home() {
 
   const [min, max] = resources.reduce(
     ([min, max], { elo = 0 }) => [Math.min(min, elo), Math.max(max, elo)],
-    [9999, 0],
+    [Infinity, 0],
   );
 
   return (
