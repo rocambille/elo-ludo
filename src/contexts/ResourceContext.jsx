@@ -10,6 +10,8 @@ const initialContent = elo.Pool([]);
 
 const ResourceContext = createContext();
 
+const makeEloPool = (data) => elo.Pool(data);
+
 function ResourceProvider({ children }) {
   const { loginData } = useLoginData();
 
@@ -23,7 +25,7 @@ function ResourceProvider({ children }) {
       token: loginData?.pat,
       initialContent,
       branch: 'data',
-      afterPull: (data) => elo.Pool(data),
+      afterPull: makeEloPool,
     },
   );
 
