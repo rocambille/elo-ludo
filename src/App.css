@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  .modal-trigger::-webkit-details-marker {
+    display: none;
+  }
+
   .modal[open] .modal-trigger:before {
     content: '';
 
