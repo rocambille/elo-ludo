@@ -1,6 +1,5 @@
 module.exports = {
-  purge: ['./src/**/*.html', './src/**/*.js', './src/**/*.jsx'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./src/**/*.html', './src/**/*.js', './src/**/*.jsx'],
   theme: {
     boxShadow: {
       DEFAULT: '0 0 .25rem 0 gray',
