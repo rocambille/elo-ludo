@@ -11,11 +11,7 @@ function LoginButton() {
 
   return (
     <Modal>
-      <Modal.Trigger>
-        <button className="link" type="button">
-          Login
-        </button>
-      </Modal.Trigger>
+      <Modal.Trigger className="link">Login</Modal.Trigger>
       <Modal.Content>
         <form
           onSubmit={(event) => {
@@ -37,7 +33,7 @@ function LoginButton() {
               }
             });
           }}
-          className="p-4 rounded-lg bg-white space-y-4">
+          className="space-y-4">
           <div className="space-y-2">
             <label htmlFor="username">username</label>
             <input
