@@ -4,16 +4,16 @@ import { node } from 'prop-types';
 import { useLoginData } from './LoginDataContext';
 import useGitHubContent from '../hooks/useGitHubContent';
 
-import elo from '@rocambille/elo';
-
-const initialContent = elo.Pool([]);
-
-const ResourceContext = createContext();
+import { Pool } from '@rocambille/elo';
 
 const makeEloPool = (data) =>
-  elo.Pool(
+  Pool.from(
     data.filter(({ type }) => type !== 'goodie' && type !== 'accessoire'),
   );
+
+const initialContent = makeEloPool([]);
+
+const ResourceContext = createContext();
 
 function ResourceProvider({ children }) {
   const { loginData } = useLoginData();
@@ -41,10 +41,10 @@ function ResourceProvider({ children }) {
   return (
     <ResourceContext.Provider
       value={{
-        resources: resources,
+        resources,
         hasSomethingToSave,
         save,
-        setResources,
+        setResources: (data) => setResources(makeEloPool(data)),
         setType,
         type,
       }}>

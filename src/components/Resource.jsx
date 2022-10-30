@@ -1,9 +1,7 @@
 import React from 'react';
 import { node, number, shape, string } from 'prop-types';
 
-const format = (elo, matchCount, lastDelta, lastPlayedAt) => {
-  elo = elo.toFixed(1);
-
+const format = ({ rating, lastDelta, lastPlayedAt, matchCount }) => {
   lastDelta = lastDelta.toFixed(1);
 
   if (lastDelta > 0) {
@@ -23,16 +21,15 @@ const format = (elo, matchCount, lastDelta, lastPlayedAt) => {
     dateOptions,
   );
 
-  return `${elo} / ${matchCount} (${lastDelta} on ${lastPlayedAt})`;
+  return `${rating.toFixed(
+    1,
+  )} / ${matchCount} (${lastDelta} on ${lastPlayedAt})`;
 };
 
 function Resource({ children, data }) {
   const {
     elo,
     image: { S300: imgSrc },
-    lastDelta,
-    lastPlayedAt,
-    matchCount,
     title,
   } = data;
 
@@ -48,11 +45,7 @@ function Resource({ children, data }) {
       )}
       <figcaption className="flex flex-col sm:w-96 p-4 sm:p-8 text-center sm:text-left space-y-2">
         <p className="font-semibold">{title}</p>
-        <p>
-          {elo != null
-            ? format(elo, matchCount, lastDelta, lastPlayedAt)
-            : 'newbie'}
-        </p>
+        <p>{elo ? format(elo) : 'newbie'}</p>
         {children}
       </figcaption>
     </figure>
@@ -62,14 +55,16 @@ function Resource({ children, data }) {
 Resource.propTypes = {
   children: node,
   data: shape({
-    elo: number,
+    elo: shape({
+      rating: number.isRequired,
+      lastDelta: number.isRequired,
+      lastPlayedAt: number.isRequired,
+      matchCount: number.isRequired,
+    }),
     id: string.isRequired,
     image: shape({
       S300: string.isRequired,
     }).isRequired,
-    lastDelta: number,
-    lastPlayedAt: number,
-    matchCount: number,
     title: string.isRequired,
   }).isRequired,
 };
