@@ -30,13 +30,15 @@ function Home() {
   );
 
   const median =
-    sortedResources[Math.floor(sortedResources.length / 2)]?.elo.rating;
+    sortedResources[Math.floor(sortedResources.length / 2)]?.elo.rating.toFixed(
+      1,
+    );
 
   return (
     <>
       <h1>played with {resources.length} games</h1>
       <p className="mb-4">
-        average : {average.toFixed(1)} / median : {median.toFixed(1)} after{' '}
+        average : {average.toFixed(1)} / median : {median} after{' '}
         {totalMatchCount} matches
       </p>
       <ResourceGrid
