@@ -19,7 +19,9 @@ function Home() {
     );
   });
 
-  const [min, max, average, totalMatchCount] = sortedResources.reduce(
+  const rankedResources = sortedResources.filter(({ elo }) => elo != null);
+
+  const [min, max, average, totalMatchCount] = rankedResources.reduce(
     ([min, max, average, totalMatchCount], { elo }, index, array) => [
       Math.min(min, elo?.rating ?? Infinity),
       Math.max(max, elo?.rating ?? 0),
@@ -30,7 +32,7 @@ function Home() {
   );
 
   const median =
-    sortedResources[Math.floor(sortedResources.length / 2)]?.elo.rating.toFixed(
+    rankedResources[Math.floor(sortedResources.length / 2)]?.elo.rating.toFixed(
       1,
     );
 
@@ -45,12 +47,14 @@ function Home() {
         resources={sortedResources}
         resourceComponentType={({ data, index }) => {
           const score =
-            2 + (18 * ((data.elo?.rating ?? 1500) - min)) / (max - min);
+            Math.round(
+              2 + (18 * ((data.elo?.rating ?? NaN) - min)) / (max - min),
+            ) / 2;
 
           return (
             <Resource data={data}>
               <p>
-                <strong>{Math.round(score) / 2}</strong>
+                <strong>{isNaN(score) ? 'N/A' : score}</strong>
                 <button
                   className="link"
                   type="button"
