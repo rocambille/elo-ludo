@@ -4,35 +4,21 @@ import Player from '../components/Player';
 import { useResources } from '../contexts';
 
 function Play() {
-  const { resources, setResources } = useResources();
+  const {
+    picked: [a, b, algorithm],
+  } = useResources();
 
-  if (resources.length < 10) {
-    return <p>you should start with searching things ;)</p>;
+  if (!a || !b) {
+    return <p>not enough resources : add some ;)</p>;
   }
-
-  const [player1, player2, algorithm] = resources.pick();
 
   return (
     <>
       <p>{algorithm}</p>
-      <Player
-        data={resources[player1]}
-        onWin={() => {
-          setResources(resources.player(player1).wins(player2));
-        }}
-      />
+      <Player data={a.data} onWin={a.wins} />
       vs
-      <Player
-        data={resources[player2]}
-        onWin={() => {
-          setResources(resources.player(player2).wins(player1));
-        }}
-      />
-      <button
-        type="button"
-        onClick={() => {
-          setResources(resources.player(player1).ties(player2));
-        }}>
+      <Player data={b.data} onWin={b.wins} />
+      <button type="button" onClick={a.ties}>
         ==
       </button>
     </>
