@@ -6,7 +6,8 @@ const link = (path, text) => (
   <li>
     <NavLink
       to={path}
-      className={({ isActive }) => (isActive ? 'active link' : 'link')}>
+      className={({ isActive }) => (isActive ? 'active link' : 'link')}
+    >
       {text}
     </NavLink>
   </li>

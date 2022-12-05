@@ -33,7 +33,8 @@ function LoginButton() {
               }
             });
           }}
-          className="space-y-4">
+          className="space-y-4"
+        >
           <div className="space-y-2">
             <label htmlFor="username">username</label>
             <input

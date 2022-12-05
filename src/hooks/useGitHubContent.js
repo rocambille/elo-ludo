@@ -25,6 +25,7 @@ const gitReducer = (state, action) => {
     }
     case 'failed fetch': {
       const { err } = action;
+      console.error(err);
 
       return { ...cleanedState, err, isFetching: false };
     }
@@ -51,7 +52,7 @@ const useGitHubContent = (owner, repository, path, options = defaulOptions) => {
 
   const [{ content, err, isFetching, isUpToDate, sha }, dispatch] = useReducer(
     gitReducer,
-    { content: initialContent },
+    { content: initialContent }
   );
 
   const canBuildTarget = owner && repository && path;
@@ -73,24 +74,30 @@ const useGitHubContent = (owner, repository, path, options = defaulOptions) => {
         },
       })
         .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
+          if (response.ok === false) {
             throw new Error();
+          } else {
+            return response.json();
           }
         })
-        .then(({ content: raw, sha }) => {
-          const decoded = Buffer.from(raw, 'base64');
+        .then((data) => {
+          const decoded = Buffer.from(data.content, 'base64');
           const parsed = JSON.parse(decoded);
-          const content = afterPull(parsed);
 
-          dispatch({ git: 'did fetch', content, sha });
+          dispatch({
+            git: 'did fetch',
+            content: afterPull(parsed),
+            sha: data.content.sha,
+          });
         })
-        .catch((err) => dispatch({ git: 'failed fetch', err }));
+        .catch((fetchError) =>
+          dispatch({ git: 'failed fetch', err: fetchError })
+        );
     }
   }, [afterPull, branch, target, token]);
 
-  const setContent = (content) => dispatch({ git: 'commit', content });
+  const setContent = (newContent) =>
+    dispatch({ git: 'commit', content: newContent });
 
   const push = () => {
     if (!isUpToDate && !isFetching && content && sha && target) {
@@ -114,14 +121,16 @@ const useGitHubContent = (owner, repository, path, options = defaulOptions) => {
         }),
       })
         .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
+          if (response.ok === false) {
             throw new Error();
+          } else {
+            return response.json();
           }
         })
-        .then(({ content: { sha } }) => dispatch({ git: 'did fetch', sha }))
-        .catch((err) => dispatch({ git: 'failed fetch', err }));
+        .then((data) => dispatch({ git: 'did fetch', sha: data.content.sha }))
+        .catch((fetchError) =>
+          dispatch({ git: 'failed fetch', err: fetchError })
+        );
     }
   };
 

@@ -1,14 +1,19 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import { node } from 'prop-types';
 
+import { Pool } from '@rocambille/elo';
 import { useLoginData } from './LoginDataContext';
 import useGitHubContent from '../hooks/useGitHubContent';
 
-import { Pool } from '@rocambille/elo';
-
 const makeEloPool = (data) =>
   Pool.from(
-    data.filter(({ type }) => type !== 'goodie' && type !== 'accessoire'),
+    data.filter(({ type }) => type !== 'goodie' && type !== 'accessoire')
   );
 
 const pick = (resources, setResources) => {
@@ -37,6 +42,8 @@ function ResourceProvider({ children }) {
 
   const [type, setType] = useState('Collection');
 
+  const [picked, setPicked] = useState([]);
+
   const [resources, setResources, git] = useGitHubContent(
     loginData?.username,
     'elo-ludo',
@@ -46,16 +53,8 @@ function ResourceProvider({ children }) {
       initialContent,
       branch: 'data',
       afterPull: makeEloPool,
-    },
+    }
   );
-
-  const hasSomethingToSave = !git.isUpToDate;
-
-  const save = () => {
-    git.push();
-  };
-
-  const [picked, setPicked] = useState([]);
 
   useEffect(() => {
     if (resources.length > 0) {
@@ -63,19 +62,23 @@ function ResourceProvider({ children }) {
     }
   }, [resources]);
 
+  const data = useMemo(
+    () => ({
+      resources,
+      hasSomethingToSave: !git.isUpToDate,
+      picked,
+      save: () => {
+        git.push();
+      },
+      setResources: (newResources) => setResources(makeEloPool(newResources)),
+      setType,
+      type,
+    }),
+    [resources, picked, git, type]
+  );
+
   return (
-    <ResourceContext.Provider
-      value={{
-        resources,
-        hasSomethingToSave,
-        picked,
-        save,
-        setResources: (data) => setResources(makeEloPool(data)),
-        setType,
-        type,
-      }}>
-      {children}
-    </ResourceContext.Provider>
+    <ResourceContext.Provider value={data}>{children}</ResourceContext.Provider>
   );
 }
 

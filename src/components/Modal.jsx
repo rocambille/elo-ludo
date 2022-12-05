@@ -1,14 +1,17 @@
-import React from 'react';
+import { useRef } from 'react';
 import { node, string } from 'prop-types';
 
 function Modal({ children }) {
+  const details = useRef();
+
   return (
     <details
       className="modal group"
+      ref={details}
       onToggle={(event) => {
         const keyDownListener = ({ key }) => {
           if (key === 'Escape') {
-            event.target.open = false;
+            details.current.open = false;
           }
         };
 
@@ -17,7 +20,8 @@ function Modal({ children }) {
         } else {
           window.removeEventListener('keydown', keyDownListener);
         }
-      }}>
+      }}
+    >
       {children}
     </details>
   );

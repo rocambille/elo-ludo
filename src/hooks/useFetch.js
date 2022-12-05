@@ -44,12 +44,12 @@ function useFetch(urlOrFactory, init, options) {
       if (url) {
         fetch(url, init)
           .then((response) => {
-            if (response.ok) {
+            if (response.ok === false) {
+              throw new Error();
+            } else {
               dispatch({ type: 'response', response });
 
-              return onResponse(response);
-            } else {
-              throw new Error();
+              onResponse(response);
             }
           })
           .then((body) => {
@@ -62,7 +62,7 @@ function useFetch(urlOrFactory, init, options) {
           });
       }
     },
-    [onBody, onResponse, init],
+    [onBody, onResponse, init]
   );
 
   useEffect(() => {

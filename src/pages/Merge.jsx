@@ -16,49 +16,49 @@ function Merge() {
 
         const incomingResources = JSON.parse(textareaRef.current.value);
 
-        const mergedResources = incomingResources.reduce(
-          (mergedResources, incomingResource) => {
-            const alreadyMerged =
-              mergedResources.find(
-                (resource) => resource.id === incomingResource.id,
-              ) != null;
+        const merge = (mergedResources, incomingResource) => {
+          const alreadyMerged =
+            mergedResources.find(
+              (resource) => resource.id === incomingResource.id
+            ) != null;
 
-            if (alreadyMerged) {
-              return mergedResources;
-            }
+          if (alreadyMerged) {
+            return mergedResources;
+          }
 
-            const knownResource = resources.find(
-              (resource) => resource.id === incomingResource.id,
-            );
+          const knownResource = resources.find(
+            (resource) => resource.id === incomingResource.id
+          );
 
-            if (knownResource) {
-              return [...mergedResources, knownResource];
-            } else {
-              return [...mergedResources, incomingResource];
-            }
-          },
-          [],
-        );
+          if (knownResource) {
+            return [...mergedResources, knownResource];
+          }
+
+          return [...mergedResources, incomingResource];
+        };
+
+        const mergedResources = incomingResources.reduce(merge, []);
 
         setAddedResources(
           mergedResources.filter(
             (mergedResource) =>
               resources.find((resource) => resource.id === mergedResource.id) ==
-              null,
-          ),
+              null
+          )
         );
         setRemovedResources(
           resources.filter(
             (resource) =>
               mergedResources.find(
-                (mergedResource) => mergedResource.id === resource.id,
-              ) == null,
-          ),
+                (mergedResource) => mergedResource.id === resource.id
+              ) == null
+          )
         );
 
         setResources(mergedResources);
-      }}>
-      <textarea ref={textareaRef}></textarea>
+      }}
+    >
+      <textarea ref={textareaRef} />
       <button type="submit">Merge</button>
       <section>
         <h2>Added</h2>

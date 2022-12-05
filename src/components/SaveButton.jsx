@@ -9,7 +9,8 @@ function SaveButton() {
       className="link"
       type="button"
       onClick={save}
-      disabled={!hasSomethingToSave}>
+      disabled={!hasSomethingToSave}
+    >
       Save
     </button>
   );

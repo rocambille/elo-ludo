@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useMemo, useState } from 'react';
 import { node } from 'prop-types';
 
 const LoginDataContext = createContext();
@@ -6,8 +6,10 @@ const LoginDataContext = createContext();
 function LoginDataProvider({ children }) {
   const [loginData, setLoginData] = useState();
 
+  const data = useMemo(() => ({ loginData, setLoginData }), [loginData]);
+
   return (
-    <LoginDataContext.Provider value={{ loginData, setLoginData }}>
+    <LoginDataContext.Provider value={data}>
       {children}
     </LoginDataContext.Provider>
   );

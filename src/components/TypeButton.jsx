@@ -5,8 +5,8 @@ function SaveButton() {
   const { type, setType } = useResources();
 
   const match = {
-    ['Collection']: 'Wishlist',
-    ['Wishlist']: 'Collection',
+    Collection: 'Wishlist',
+    Wishlist: 'Collection',
   };
 
   return (
@@ -15,7 +15,8 @@ function SaveButton() {
       type="button"
       onClick={() => {
         setType(match[type]);
-      }}>
+      }}
+    >
       {match[type]}
     </button>
   );

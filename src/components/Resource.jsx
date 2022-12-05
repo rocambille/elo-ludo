@@ -2,11 +2,7 @@ import React from 'react';
 import { node, number, shape, string } from 'prop-types';
 
 const format = ({ rating, lastDelta, lastPlayedAt, matchCount }) => {
-  lastDelta = lastDelta.toFixed(1);
-
-  if (lastDelta > 0) {
-    lastDelta = `+${lastDelta}`;
-  }
+  const fixedLastDelta = `${'+'.repeat(lastDelta > 0)}${lastDelta.toFixed(1)}`;
 
   const dateOptions = {
     year: 'numeric',
@@ -16,14 +12,14 @@ const format = ({ rating, lastDelta, lastPlayedAt, matchCount }) => {
     minute: '2-digit',
     second: '2-digit',
   };
-  lastPlayedAt = new Date(lastPlayedAt).toLocaleDateString(
+  const lastPlayedAtString = new Date(lastPlayedAt).toLocaleDateString(
     undefined,
-    dateOptions,
+    dateOptions
   );
 
   return `${rating.toFixed(
-    1,
-  )} / ${matchCount} (${lastDelta} on ${lastPlayedAt})`;
+    1
+  )} / ${matchCount} (${fixedLastDelta} on ${lastPlayedAtString})`;
 };
 
 function Resource({ children, data }) {
@@ -67,6 +63,10 @@ Resource.propTypes = {
     }).isRequired,
     title: string.isRequired,
   }).isRequired,
+};
+
+Resource.defaultProps = {
+  children: null,
 };
 
 export default Resource;

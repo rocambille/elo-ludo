@@ -12,7 +12,8 @@ function Controls({ className }) {
 
   return (
     <div
-      className={`flex flex-row justify-end shadow-b mr-2 sm:mr-0 ${className}`}>
+      className={`flex flex-row justify-end shadow-b mr-2 sm:mr-0 ${className}`}
+    >
       {loginData == null ? (
         <LoginButton />
       ) : (
