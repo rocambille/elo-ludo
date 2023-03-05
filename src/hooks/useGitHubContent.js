@@ -87,7 +87,7 @@ const useGitHubContent = (owner, repository, path, options = defaulOptions) => {
           dispatch({
             git: 'did fetch',
             content: afterPull(parsed),
-            sha: data.content.sha,
+            sha: data.sha,
           });
         })
         .catch((fetchError) =>

@@ -94,7 +94,7 @@ function Home() {
       <h1>played with {resources.length} games</h1>
       <p className="mb-4">
         average : {average.toFixed(1)} / median : {median} after{' '}
-        {totalMatchCount} matches
+        {totalMatchCount / 2} matches
       </p>
       <ResourceGrid
         resources={sortedResources}

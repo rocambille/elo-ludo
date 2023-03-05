@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { node } from 'prop-types';
 
 import { Pool } from '@rocambille/elo';
@@ -62,23 +56,23 @@ function ResourceProvider({ children }) {
     }
   }, [resources]);
 
-  const data = useMemo(
-    () => ({
-      resources,
-      hasSomethingToSave: !git.isUpToDate,
-      picked,
-      save: () => {
-        git.push();
-      },
-      setResources: (newResources) => setResources(makeEloPool(newResources)),
-      setType,
-      type,
-    }),
-    [resources, picked, git, type]
-  );
-
   return (
-    <ResourceContext.Provider value={data}>{children}</ResourceContext.Provider>
+    <ResourceContext.Provider
+      // eslint-disable-next-line react/jsx-no-constructed-context-values
+      value={{
+        resources,
+        hasSomethingToSave: !git.isUpToDate,
+        picked,
+        save: () => {
+          git.push();
+        },
+        setResources: (newResources) => setResources(makeEloPool(newResources)),
+        setType,
+        type,
+      }}
+    >
+      {children}
+    </ResourceContext.Provider>
   );
 }
 
